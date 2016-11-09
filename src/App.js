@@ -61,7 +61,7 @@ class App extends React.Component {
         // loop through all elements
         for ( let i = 0, len = we.length; i < len; i++ ) {
           // remove current z-index
-          we[i].style.zIndex = null;
+          we[i].style.zIndex = '0';
         }
         // then set the selected element z-index to 10
         this.element.style.zIndex = '10';
