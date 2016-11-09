@@ -1,7 +1,7 @@
 # Balaclava Experimental Site
 
 Experimental site for the Brazilian studio balaclava (balaclavastudio.com.br) built with React.js.
-The idea is to have windows showing the content as the user navigates de website (almost like a GUI).
+The idea is to have windows showing the content as the user navigates de website.
 
 ## Roadmap
 - Create the windows in their default position;
