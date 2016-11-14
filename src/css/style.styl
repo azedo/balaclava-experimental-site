@@ -1,37 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+*
+  box-sizing border-box
+
 body
-  background #1B2B34
-  color white
-
-.window
-  background-color #BAD455
-  position absolute
+  background #fff
   color #000
-  box-shadow 1px 1px 8px rgba(0,0,0,0.5)
-  border-radius 5px
-  .window-topBar
-    background blue
-    border-radius 5px 5px 0 0
-    padding 5px
-    color white
-    a
-      color currentColor
-      text-decoration none
-      padding 5px
-  .window-content
-    padding 15px
-    p
-      &:first-of-type
-        margin-top 0
-      &:last-of-type
-        margin-bottom 0
-  &.minimized
-    // display inline-block
-    bottom 0 !important
-    top initial !important
+  font-family 'open sans'
 
-.minimized
-  .window-content
-    display none
+#root
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  left 0
+
+.page-logo
+  position absolute
+  top 10px
+  left 20px
+  width 250px
+  img
+    width 100%
+
+@import './components/_windows.styl';
 
 .controls
   float right

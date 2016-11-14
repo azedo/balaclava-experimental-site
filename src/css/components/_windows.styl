@@ -1,0 +1,75 @@
+.window
+  position absolute
+  box-shadow 1px 1px 8px rgba(0,0,0,0.5)
+  background #fff
+  .window-top
+    position relative
+    width 100%
+    height 25px
+    .window-top-controls
+      position absolute
+      top 0
+      right 0
+      .window-top-btn
+        text-decoration none
+        color #000
+        padding 0 4px
+        font-size 14px
+        line-height 8px
+        position relative
+        top 3px
+        right 4px
+        height 17px
+        width 16px
+        display block
+        line-height 13px
+  .window-content
+    .window-content-img
+      // margin-bottom 10px
+    .window-content-text
+      // margin-top 10px
+      line-height 20px
+      h3
+        font-size 20px
+        border-bottom 1px solid #000
+        padding-bottom 5px
+        display inline-block
+      p
+        &:first-of-type
+          margin-top 0
+        &:last-of-type
+          margin-bottom 0
+  &.minimized
+    bottom 0 !important
+    top initial !important
+    .window-content
+      display none
+
+.window-chromeless
+  .window-top
+    background transparent
+    position absolute
+  &.window-chromeless-img
+    background #000
+    color #fff
+    .window-close-btn
+      color #fff
+    .window-content
+      padding 10px
+      width 200px
+
+.window-regular
+  border 1px solid #000
+  .window-top
+    border-top 1px solid #fff
+    border-left 1px solid #fff
+    background #000
+    .window-top-btn
+      background #fff
+      border-top 1px solid #333
+      border-left 1px solid #333
+  .window-content
+    padding 1px
+    .window-content-text
+      width 190px
+      padding 10px
