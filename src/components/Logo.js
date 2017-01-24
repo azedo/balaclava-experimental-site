@@ -2,8 +2,16 @@
 
 // main imports
 import React, { Component } from 'react';
+import logo_static from '../img/logo-static.png';
+import logo_animated from '../img/logo-animated.gif';
 
 class Logo extends Component {
+  constructor() {
+    super();
+    // bind the methods
+    this._animateLogo = this._animateLogo.bind(this);
+  }
+
   _animateLogo(e, action) {
     const elem = e.target;
     const imgStatic = elem.getAttribute('data-static');

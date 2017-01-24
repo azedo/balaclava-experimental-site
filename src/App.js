@@ -3,8 +3,6 @@ import Draggabilly from 'draggabilly';
 import axios from 'axios';
 import Logo from './components/Logo';
 import Window from './components/Window';
-import logo_static from './img/logo-static.png';
-import logo_animated from './img/logo-animated.gif';
 import img1 from './img/balaclava-img-box-1.png';
 
 class App extends Component {
@@ -15,7 +13,7 @@ class App extends Component {
     this._dragWindows = this._dragWindows.bind(this);
     this._deleteWindow = this._deleteWindow.bind(this);
     this._dragUpdate = this._dragUpdate.bind(this);
-    this._animateLogo = this._animateLogo.bind(this);
+
     // set the inital state of the windows
     this.state = {
       windows: {
