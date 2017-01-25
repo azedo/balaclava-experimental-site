@@ -2,31 +2,31 @@
   position absolute
   box-shadow 1px 1px 8px rgba(0,0,0,0.5)
   background #fff
-  .window-top
+  &-top
     position relative
     width 100%
     height 25px
-    .window-top-controls
+    &__controls
       position absolute
       top 0
       right 0
-      .window-top-btn
-        text-decoration none
-        color #000
-        padding 0 4px
-        font-size 14px
-        line-height 8px
-        position relative
-        top 3px
-        right 4px
-        height 17px
-        width 16px
-        display block
-        line-height 13px
-  .window-content
-    .window-content-img
+    &__btn
+      text-decoration none
+      color #000
+      padding 0 4px
+      font-size 14px
+      line-height 8px
+      position relative
+      top 3px
+      right 4px
+      height 17px
+      width 16px
+      display block
+      line-height 13px
+  &-content
+    &__img
       // margin-bottom 10px
-    .window-content-text
+    &__text
       // margin-top 10px
       line-height 20px
       h3
@@ -39,17 +39,18 @@
           margin-top 0
         &:last-of-type
           margin-bottom 0
-  &.minimized
-    bottom 0 !important
-    top initial !important
-    .window-content
-      display none
 
-.window-chromeless
+.is-minimized
+  bottom 0 !important
+  top initial !important
+  .window-content
+    display none
+
+.window--chromeless
   .window-top
     background transparent
     position absolute
-  &.window-chromeless-img
+  &.window--chromeless__img
     background #000
     color #fff
     .window-close-btn
@@ -58,18 +59,18 @@
       padding 10px
       width 200px
 
-.window-regular
+.window--regular
   border 1px solid #000
   .window-top
     border-top 1px solid #fff
     border-left 1px solid #fff
     background #000
-    .window-top-btn
+    &__btn
       background #fff
       border-top 1px solid #333
       border-left 1px solid #333
   .window-content
     padding 1px
-    .window-content-text
+    &__text
       width 190px
       padding 10px

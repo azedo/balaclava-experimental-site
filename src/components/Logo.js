@@ -26,7 +26,7 @@ class Logo extends Component {
 
   render() {
     return (
-      <div className="page-logo">
+      <div className="page__logo">
         <img src={logo_static} data-static={logo_static} data-gif={logo_animated} alt="Balaclava Studio" onMouseOver={(e) => this._animateLogo(e, 'start')} onMouseOut={(e) => this._animateLogo(e, 'stop')} />
       </div>
     )

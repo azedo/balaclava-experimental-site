@@ -150,7 +150,7 @@ class App extends Component {
     let elem = [],
         addWindows,
         minWindows;
-    const className = 'minimized';
+    const className = 'is-minimized';
 
     // check if it is one or all elements to minimize
     if (windows === 'all') {
