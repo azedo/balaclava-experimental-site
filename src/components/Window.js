@@ -9,7 +9,7 @@ class Window extends Component {
       <div data-id={this.props.index} className={`window window-${this.props.windowType}`} style={{left: this.props.position[0] + 'px', top: this.props.position[1] + 'px', position: 'absolute'}}>
         <div className="window-top">
           <div className="window-top-controls">
-            {/*<a href="#" className="window-top-btn" onClick={(e) => this._toggleMinMaxWindow(e)}>_</a>*/}
+            <a href="#" className="window-top-btn" onClick={(e) => this.props._toggleMinMaxWindow(e)}>_</a>
             <a href="#" className="window-top-btn" onClick={(e) => this.props._deleteWindow(e, this.props.index)}>x</a>
           </div>
         </div>

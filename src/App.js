@@ -11,6 +11,7 @@ class App extends Component {
     // bind the methods
     this._renderWindows = this._renderWindows.bind(this);
     this._dragWindows = this._dragWindows.bind(this);
+    this._toggleMinMaxWindow = this._toggleMinMaxWindow.bind(this);
     this._deleteWindow = this._deleteWindow.bind(this);
     this._dragUpdate = this._dragUpdate.bind(this);
 
@@ -42,7 +43,8 @@ class App extends Component {
           pos: [500, 150],
           windowType: 'regular',
         },
-      }
+      },
+      minWindows: 0,
     };
   }
 
@@ -81,7 +83,7 @@ class App extends Component {
     // check if there are windows
     if (window) {
       return (
-        <Window key={key} index={key} windowType={windowType} position={pos} _deleteWindow={this._deleteWindow} content={img1} />
+        <Window key={key} index={key} windowType={windowType} position={pos} _toggleMinMaxWindow={this._toggleMinMaxWindow} _deleteWindow={this._deleteWindow} content={img1} />
       )
     }
   }
@@ -145,20 +147,22 @@ class App extends Component {
   }
 
   _toggleMinMaxWindow(e, windows = 'one') {
-    let elem = [];
+    let elem = [],
+        addWindows,
+        minWindows;
     const className = 'minimized';
 
+    // check if it is one or all elements to minimize
     if (windows === 'all') {
       // get all window element
       elem = document.querySelectorAll('.window');
-      console.log(windows);
-      console.log(elem);
+      addWindows = elem.length;
     } else {
       // get single window element
       elem = [e.target.parentElement.parentElement.parentElement];
-      console.log(windows);
-      console.log(elem);
+      addWindows = 1;
     }
+
     // loop through all elements
     for ( let i = 0, len = elem.length; i < len; i++ ) {
       // add class
@@ -174,6 +178,17 @@ class App extends Component {
           classes.push(className);
 
         elem[i].className = classes.join(' ');
+      }
+
+      // save to state
+      // TODO fix the toggle button that is not changing the state correctly
+      // TODO make sure that the state never goes negative!
+      if (!elem[i].classList.contains(className)) {
+        minWindows = this.state.minWindows - addWindows;
+        this.setState({minWindows});
+      } else {
+        minWindows = this.state.minWindows + addWindows;
+        this.setState({minWindows});
       }
     }
   }
@@ -192,9 +207,9 @@ class App extends Component {
     const windows = this.state.windows;
     return (
       <div className="page">
-        {/*<div className="controls">
+        <div className="controls">
           <a href="#" onClick={(e) => this._toggleMinMaxWindow(e, 'all')}>Toggle min/max all</a>
-        </div>*/}
+        </div>
         <Logo />
 
         {Object.keys(windows).map(key => this._renderWindows(key, windows))}
