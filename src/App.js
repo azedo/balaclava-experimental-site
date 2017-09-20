@@ -63,12 +63,11 @@ class App extends Component {
   componentDidMount() {
     // server request using axios
     const requestUrl = 'http://codepen.io/jobs.json';
-    this.serverRequest = axios.get(requestUrl)
-        .then((result) => {
-          this.setState({
-            jobs: result.data.jobs
-          });
-        });
+    this.serverRequest = axios.get(requestUrl).then((result) => {
+      this.setState({
+        jobs: result.data.jobs
+      });
+    });
 
     // execute drag window function
     this._dragWindows();
@@ -100,6 +99,8 @@ class App extends Component {
       const draggie = new Draggabilly( draggableElem, {
         // options for the draggable elements
         // axis: 'x',
+        containment: '#root',
+        handle: '.window-top'
       });
       draggies.push( draggie );
       // when element is clicked on
@@ -193,14 +194,28 @@ class App extends Component {
     }
   }
 
+  _rearrangeWindows() {
+    const draggableElems = document.querySelectorAll('.window');
+    let a = 0, b = 10, r;
+    for ( let i = 0, len = draggableElems.length; i < len; i++ ) {
+      const draggableElem = draggableElems[i];
+
+      r = a + b
+      a = draggableElem.offsetWidth + r
+
+      draggableElem.style.left = r + 'px'
+      draggableElem.style.top = '10px'
+    }
+  }
+
   _deleteWindow(e, key) {
     e.preventDefault();
     // copy current state
-    const newState = {...this.state};
+    const newState = { ...this.state.windows };
     // delete selected object
-    delete this.state.windows[key];
+    delete newState[key];
     // set new state
-    this.setState({newState});
+    this.setState({ windows: newState });
   }
 
   render() {
@@ -209,6 +224,7 @@ class App extends Component {
       <div className="page">
         <div className="controls">
           <a href="#" onClick={(e) => this._toggleMinMaxWindow(e, 'all')}>Toggle min/max all</a>
+          <a href="#" onClick={(e) => this._rearrangeWindows(e)}>Rearrange Windows</a>
         </div>
         <Logo />
 
