@@ -34,9 +34,14 @@ body {
   height: 25px;
 }
 .window-top__controls {
-  position: absolute;
-  top: 0;
-  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  width: 100%;
 }
 .window-top__btn {
   text-decoration: none;
@@ -49,7 +54,7 @@ body {
   right: 4px;
   height: 17px;
   width: 16px;
-  display: block;
+  display: inline-block;
   line-height: 13px;
 }
 .window-content__text {
@@ -70,6 +75,7 @@ body {
 .is-minimized {
   bottom: 0 !important;
   top: initial !important;
+  min-width: 80px;
 }
 .is-minimized .window-content {
   display: none;
@@ -101,6 +107,12 @@ body {
   background: #fff;
   border-top: 1px solid #333;
   border-left: 1px solid #333;
+}
+.window--regular .window-top__btn:first-of-type {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  margin-right: 3px;
 }
 .window--regular .window-content {
   padding: 1px;
