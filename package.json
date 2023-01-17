@@ -13,7 +13,7 @@
     "draggabilly": "^2.1.1",
     "history": "^4.3.0",
     "moment": "^2.15.1",
-    "re-base": "^2.2.0",
+    "re-base": "^4.0.0",
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",
     "react-document-title": "^2.0.2",
